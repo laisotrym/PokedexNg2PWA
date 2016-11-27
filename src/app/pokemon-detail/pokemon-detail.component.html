@@ -1,0 +1,18 @@
+<div #view *ngIf="(pokemon | async)?.id">
+	<div layout="row">
+		<div layout="col 5@sm 4@md">
+			<i [class]="'sprite sprite-' + (pokemon | async)?.id"></i>
+		</div>
+		<div layout="col 7@sm 8@md">
+			<h1>{{(pokemon | async)?.name}} #{{(pokemon | async)?.id}}</h1>
+      <div *ngFor="let type of (pokemon | async)?.types" class="type" [ngClass]="type">
+        {{type}}
+      </div>
+			<p>
+				<strong>Height:</strong> {{(pokemon | async)?.height / 10}} m
+        <strong>Weight:</strong> {{(pokemon | async)?.weight / 10}} kg
+			</p>
+			<p>{{(pokemon | async)?.description}}</p>
+		</div>
+	</div>
+</div>
